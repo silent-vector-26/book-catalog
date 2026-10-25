@@ -31,6 +31,11 @@ The application demonstrates:
 - uv
 - Docker / Docker Compose
 
+## Documentation
+
+- [Software Requirements Specification](docs/SRS.md)
+- [Software Design Document](docs/SDD.md)
+
 ## Domain
 
 The application manages authors and books.
