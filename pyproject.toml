@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "book-catalog"
+version = "0.1.0"
+description = "A small full-stack book catalog for exploring modern Python development."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = [
+    "asyncpg>=0.30.0",
+    "alembic>=1.14.0",
+    "fastapi>=0.115.0",
+    "jinja2>=3.1.5",
+    "pydantic-settings>=2.7.0",
+    "sqlalchemy[asyncio]>=2.0.36",
+    "uvicorn[standard]>=0.34.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "httpx>=0.28.0",
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.25.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/book_catalog"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"src/book_catalog/migrations/script.py.mako" = "book_catalog/migrations/script.py.mako"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
