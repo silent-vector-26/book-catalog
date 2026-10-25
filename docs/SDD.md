@@ -3,7 +3,7 @@
 
 **Version:** 0.2
 **Status:** Draft
-**Related:** [SRS](../.docs/SRS.md) · [README](../README.md)
+**Related:** [SRS](SRS.md) · [README](../README.md)
 
 ---
 
