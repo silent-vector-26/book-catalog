@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Catalog</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">BOOK CATALOG</p>
+          <h1>A good book stays with you.</h1>
+        </div>
+        <nav aria-label="Catalog sections">
+          <button class="nav-button active" data-view="books" type="button">Books</button>
+          <button class="nav-button" data-view="authors" type="button">Authors</button>
+        </nav>
+      </header>
+
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+
+      <section id="books-view" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR SHELVES</p>
+            <h2>Books</h2>
+          </div>
+          <button id="add-book" class="primary-button" type="button">Add a book</button>
+        </div>
+        <form id="book-form" class="editor hidden">
+          <h3 id="book-form-heading">Add a book</h3>
+          <input id="book-id" type="hidden">
+          <label>Title<input id="book-title" required></label>
+          <div class="form-row">
+            <label>Author<select id="book-author" required></select></label>
+            <label>Publication year<input id="book-year" type="number" min="1" placeholder="Unknown"></label>
+            <label>Price<input id="book-price" type="number" min="0" step="0.01" required></label>
+          </div>
+          <div class="form-actions">
+            <button class="primary-button" type="submit">Save book</button>
+            <button class="quiet-button" data-cancel="book" type="button">Cancel</button>
+          </div>
+        </form>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Title</th><th>Author</th><th>Year</th><th>Price</th><th><span class="sr-only">Actions</span></th></tr></thead>
+            <tbody id="books-table"></tbody>
+          </table>
+          <p id="books-empty" class="empty hidden">No books yet. Add one to get started.</p>
+        </div>
+      </section>
+
+      <section id="authors-view" class="panel hidden">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THE PEOPLE BEHIND THE PAGES</p>
+            <h2>Authors</h2>
+          </div>
+          <button id="add-author" class="primary-button" type="button">Add an author</button>
+        </div>
+        <form id="author-form" class="editor hidden">
+          <h3 id="author-form-heading">Add an author</h3>
+          <input id="author-id" type="hidden">
+          <div class="form-row">
+            <label>Name<input id="author-name" required></label>
+            <label>Country <span class="optional">(optional)</span><input id="author-country"></label>
+          </div>
+          <div class="form-actions">
+            <button class="primary-button" type="submit">Save author</button>
+            <button class="quiet-button" data-cancel="author" type="button">Cancel</button>
+          </div>
+        </form>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>Country</th><th><span class="sr-only">Actions</span></th></tr></thead>
+            <tbody id="authors-table"></tbody>
+          </table>
+          <p id="authors-empty" class="empty hidden">No authors yet. Add one to get started.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
